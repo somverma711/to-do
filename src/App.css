@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
+  /* background-color: #17181f; */
+  color: #aaa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url(/public/img/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-content: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  
+}
+
+
+.main-content{
+  width: 40vw;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.242);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  
+  
+}
+.Task-content{
+  position: absolute;
+  height: 310px;
+  border-radius: 10px;
+  width: 95%;
+  overflow-y: scroll;
+  
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #61dafb; 
+  border-radius: 10px;
+}
+
+form{
+  border: 3px solid #303130;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex ;
+  width: 90%;
+  margin-left: 1rem;
+  align-items: center;
+  
+  
+}
+form input[type="text"]{
+  background: none;
+  border: 0;
   color: white;
+  padding: 0 8px;
+  display: block;
+  width: 100%;
+}
+.task-enter input[type="text"]{
+  background: none;
+  border: 0;
+  color: black;
+  padding: 0 8px;
+  display: block;
+  width: 100%;
+}
+input{
+  outline: none;
+}
+input::placeholder{
+  color: black;
 }
 
-.App-link {
-  color: #61dafb;
+form button{
+  /* background-color: #61dafb;
+  border-radius:6px ; */
+  border: 0;
+  cursor: pointer;
+  background: none;
+}
+.task{
+  background-color: #303130;
+  border-radius: 10px;
+  padding: 5px 9px;
+  margin-top: 5px;
+  display: flex;
+  transition: opacity .3s linear;
+  align-items: center;
+  width: 90%;
+  margin-left: 1rem;
+
+  
+}
+.task svg{
+  
+  margin-right: 6px;
+  fill: #61dafb;
+  
+}
+.task.done{
+  opacity: 0.3;
+  
+}
+.task-name {
+  flex-grow: 1;
+}
+.task form{
+  flex-grow: 1;
+  
+}
+.task span{
+  position: relative;
+  
+}
+.task span::before{
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #ddd;
+  position: absolute;
+  top: 10px;
+  transition: width .2s linear;
+}
+.task.done span::before{
+  width: 100%;
+}
+.checkbox{
+  display: flex;
+  align-items: center;
+}
+h1{
+  padding-top: 2rem;
+  text-align: center;
+  color: #000;
+}
+h2{
+  text-align: center;
+  color: #000;
+}
+.trash{
+  background: none;
+  border: none;
+  display: flex;
+  cursor: pointer;
+}
+.trash svg {
+  fill: #61dafb;
+  height: 14px;
+}
+.task input{
+  border: 2px solid #555;
+  border-radius: 5px;
+  padding: 2px 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 900px) {
+  .main-content{
+    width: 90vw;
+    height: 700px;
+    background-color: rgba(255, 255, 255, 0.318);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);  
+    margin-top: 2.8rem;
   }
-  to {
-    transform: rotate(360deg);
-  }
+  .Task-content{
+  position: absolute;
+  height: 500px;
+  border-radius: 10px;
+  width: 100%;
+  overflow-y: scroll;
+  
+}
+}
+.editTask{
+  margin-left: -6px;
 }
